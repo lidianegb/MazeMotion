@@ -8,25 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		AF000B592C3DCB4500DF495A /* MazeMotionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF000B582C3DCB4500DF495A /* MazeMotionApp.swift */; };
-		AF000B5B2C3DCB4500DF495A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF000B5A2C3DCB4500DF495A /* ContentView.swift */; };
+		AF000B5B2C3DCB4500DF495A /* MazeMotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF000B5A2C3DCB4500DF495A /* MazeMotionView.swift */; };
 		AF000B5D2C3DCB4600DF495A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF000B5C2C3DCB4600DF495A /* Assets.xcassets */; };
 		AF000B602C3DCB4600DF495A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF000B5F2C3DCB4600DF495A /* Preview Assets.xcassets */; };
 		AF000B672C3DCB5600DF495A /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF000B662C3DCB5600DF495A /* MotionManager.swift */; };
 		AF000B692C3DCC8000DF495A /* MazeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF000B682C3DCC8000DF495A /* MazeView.swift */; };
-		AF3FB1732C3DF29400115207 /* MazeMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3FB1722C3DF29400115207 /* MazeMatrix.swift */; };
+		AF3FB1732C3DF29400115207 /* MazeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3FB1722C3DF29400115207 /* MazeModel.swift */; };
 		AF94FBC22C4051A3004E6A66 /* CheckMarkAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF94FBC12C4051A3004E6A66 /* CheckMarkAnimation.swift */; };
+		AFC8FB252C6E544E0055464B /* MazeMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC8FB242C6E544E0055464B /* MazeMatrix.swift */; };
+		AFC8FB282C6EA7560055464B /* NewLevelAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC8FB272C6EA7560055464B /* NewLevelAnimation.swift */; };
+		AFC8FB2E2C6EA9AC0055464B /* MazeMotionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC8FB2D2C6EA9AC0055464B /* MazeMotionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AF000B552C3DCB4500DF495A /* MazeMotion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MazeMotion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF000B582C3DCB4500DF495A /* MazeMotionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeMotionApp.swift; sourceTree = "<group>"; };
-		AF000B5A2C3DCB4500DF495A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AF000B5A2C3DCB4500DF495A /* MazeMotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeMotionView.swift; sourceTree = "<group>"; };
 		AF000B5C2C3DCB4600DF495A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF000B5F2C3DCB4600DF495A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AF000B662C3DCB5600DF495A /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		AF000B682C3DCC8000DF495A /* MazeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeView.swift; sourceTree = "<group>"; };
-		AF3FB1722C3DF29400115207 /* MazeMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeMatrix.swift; sourceTree = "<group>"; };
+		AF3FB1722C3DF29400115207 /* MazeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeModel.swift; sourceTree = "<group>"; };
 		AF94FBC12C4051A3004E6A66 /* CheckMarkAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkAnimation.swift; sourceTree = "<group>"; };
+		AFC8FB242C6E544E0055464B /* MazeMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeMatrix.swift; sourceTree = "<group>"; };
+		AFC8FB272C6EA7560055464B /* NewLevelAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLevelAnimation.swift; sourceTree = "<group>"; };
+		AFC8FB2D2C6EA9AC0055464B /* MazeMotionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeMotionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,14 +65,14 @@
 		AF000B572C3DCB4500DF495A /* MazeMotion */ = {
 			isa = PBXGroup;
 			children = (
+				AFC8FB2B2C6EA9670055464B /* Utils */,
+				AFC8FB2A2C6EA91F0055464B /* ViewModel */,
+				AFC8FB292C6EA8EF0055464B /* View */,
+				AFC8FB262C6EA7430055464B /* Animations */,
+				AFC8FB232C6E54350055464B /* Model */,
 				AF000B582C3DCB4500DF495A /* MazeMotionApp.swift */,
-				AF000B5A2C3DCB4500DF495A /* ContentView.swift */,
 				AF000B5C2C3DCB4600DF495A /* Assets.xcassets */,
 				AF000B5E2C3DCB4600DF495A /* Preview Content */,
-				AF000B662C3DCB5600DF495A /* MotionManager.swift */,
-				AF000B682C3DCC8000DF495A /* MazeView.swift */,
-				AF3FB1722C3DF29400115207 /* MazeMatrix.swift */,
-				AF94FBC12C4051A3004E6A66 /* CheckMarkAnimation.swift */,
 			);
 			path = MazeMotion;
 			sourceTree = "<group>";
@@ -77,6 +83,49 @@
 				AF000B5F2C3DCB4600DF495A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AFC8FB232C6E54350055464B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AFC8FB242C6E544E0055464B /* MazeMatrix.swift */,
+				AF3FB1722C3DF29400115207 /* MazeModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AFC8FB262C6EA7430055464B /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				AF94FBC12C4051A3004E6A66 /* CheckMarkAnimation.swift */,
+				AFC8FB272C6EA7560055464B /* NewLevelAnimation.swift */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		AFC8FB292C6EA8EF0055464B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AF000B5A2C3DCB4500DF495A /* MazeMotionView.swift */,
+				AF000B682C3DCC8000DF495A /* MazeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AFC8FB2A2C6EA91F0055464B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AFC8FB2D2C6EA9AC0055464B /* MazeMotionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AFC8FB2B2C6EA9670055464B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				AF000B662C3DCB5600DF495A /* MotionManager.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,9 +198,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF3FB1732C3DF29400115207 /* MazeMatrix.swift in Sources */,
-				AF000B5B2C3DCB4500DF495A /* ContentView.swift in Sources */,
+				AF3FB1732C3DF29400115207 /* MazeModel.swift in Sources */,
+				AF000B5B2C3DCB4500DF495A /* MazeMotionView.swift in Sources */,
+				AFC8FB252C6E544E0055464B /* MazeMatrix.swift in Sources */,
+				AFC8FB2E2C6EA9AC0055464B /* MazeMotionViewModel.swift in Sources */,
 				AF000B692C3DCC8000DF495A /* MazeView.swift in Sources */,
+				AFC8FB282C6EA7560055464B /* NewLevelAnimation.swift in Sources */,
 				AF000B672C3DCB5600DF495A /* MotionManager.swift in Sources */,
 				AF94FBC22C4051A3004E6A66 /* CheckMarkAnimation.swift in Sources */,
 				AF000B592C3DCB4500DF495A /* MazeMotionApp.swift in Sources */,
@@ -213,7 +265,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -270,7 +322,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
