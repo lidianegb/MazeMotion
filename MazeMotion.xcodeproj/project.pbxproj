@@ -14,6 +14,8 @@
 		AF000B672C3DCB5600DF495A /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF000B662C3DCB5600DF495A /* MotionManager.swift */; };
 		AF000B692C3DCC8000DF495A /* MazeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF000B682C3DCC8000DF495A /* MazeView.swift */; };
 		AF3FB1732C3DF29400115207 /* MazeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3FB1722C3DF29400115207 /* MazeModel.swift */; };
+		AF741E582C7F8A5D00661726 /* GlowBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF741E572C7F8A5D00661726 /* GlowBorder.swift */; };
+		AF741E5A2C7F8EA700661726 /* ButtonGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF741E592C7F8EA700661726 /* ButtonGame.swift */; };
 		AF94FBC22C4051A3004E6A66 /* CheckMarkAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF94FBC12C4051A3004E6A66 /* CheckMarkAnimation.swift */; };
 		AFC8FB252C6E544E0055464B /* MazeMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC8FB242C6E544E0055464B /* MazeMatrix.swift */; };
 		AFC8FB282C6EA7560055464B /* NewLevelAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC8FB272C6EA7560055464B /* NewLevelAnimation.swift */; };
@@ -29,6 +31,8 @@
 		AF000B662C3DCB5600DF495A /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		AF000B682C3DCC8000DF495A /* MazeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeView.swift; sourceTree = "<group>"; };
 		AF3FB1722C3DF29400115207 /* MazeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeModel.swift; sourceTree = "<group>"; };
+		AF741E572C7F8A5D00661726 /* GlowBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowBorder.swift; sourceTree = "<group>"; };
+		AF741E592C7F8EA700661726 /* ButtonGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonGame.swift; sourceTree = "<group>"; };
 		AF94FBC12C4051A3004E6A66 /* CheckMarkAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkAnimation.swift; sourceTree = "<group>"; };
 		AFC8FB242C6E544E0055464B /* MazeMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeMatrix.swift; sourceTree = "<group>"; };
 		AFC8FB272C6EA7560055464B /* NewLevelAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLevelAnimation.swift; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				AF000B662C3DCB5600DF495A /* MotionManager.swift */,
+				AF741E572C7F8A5D00661726 /* GlowBorder.swift */,
+				AF741E592C7F8EA700661726 /* ButtonGame.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -200,8 +206,10 @@
 			files = (
 				AF3FB1732C3DF29400115207 /* MazeModel.swift in Sources */,
 				AF000B5B2C3DCB4500DF495A /* MazeMotionView.swift in Sources */,
+				AF741E582C7F8A5D00661726 /* GlowBorder.swift in Sources */,
 				AFC8FB252C6E544E0055464B /* MazeMatrix.swift in Sources */,
 				AFC8FB2E2C6EA9AC0055464B /* MazeMotionViewModel.swift in Sources */,
+				AF741E5A2C7F8EA700661726 /* ButtonGame.swift in Sources */,
 				AF000B692C3DCC8000DF495A /* MazeView.swift in Sources */,
 				AFC8FB282C6EA7560055464B /* NewLevelAnimation.swift in Sources */,
 				AF000B672C3DCB5600DF495A /* MotionManager.swift in Sources */,

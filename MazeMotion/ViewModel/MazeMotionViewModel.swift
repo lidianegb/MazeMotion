@@ -13,14 +13,16 @@ class MazeMotionViewModel: ObservableObject {
     @Published var showLevelAnimation: Bool = false
     @Published var finishGame: Bool = false
     
+    private (set) var currentLevel: Int = .zero
+    
     private var ballPosition = CGPoint.zero
-    private var currentLevel = Int.zero
     private var currentIndex = Int.zero
     
     init() {
         self.ballPosition = mazeModel.currentBallPosition
         self.currentLevel = mazeModel.currentLevel.rawValue
         self.currentIndex = mazeModel.currentMazeIndex
+        self.currentLevel = mazeModel.currentLevel.rawValue
     }
     
     let cellSize: CGFloat = 30
@@ -29,7 +31,7 @@ class MazeMotionViewModel: ObservableObject {
         finishGame ? "Fim!" : "Nível \(currentLevel + 1) [\(currentIndex + 1)]"
     }
     
-    func updateBallPosition(_ position: CGPoint) {
+    func checkNewPosition(_ position: CGPoint) {
         let newX = ballPosition.x + CGFloat(position.x * 10)
         let newY = ballPosition.y - CGFloat(position.y * 10)
         
@@ -38,23 +40,21 @@ class MazeMotionViewModel: ObservableObject {
         
         guard newCellY >= 0 && newCellX >= 0 else { return }
         
-        if mazeModel.isExit(row: newCellY, column: newCellX) {
-            nextMaze()
-            return
+        if mazeModel.currentMaze[newCellY][newCellX] != 1 {
+            updateBallPosition(newPosition: CGPoint(x: newX, y: newY))
         }
         
-        if mazeModel.currentMaze[newCellY][newCellX] != 1 {
-            ballPosition = CGPoint(x: newX, y: newY)
-            let newPosition = CGPoint(x: Int(ballPosition.x / cellSize), y: Int(ballPosition.y /  cellSize))
-            mazeModel.updateBallPosition(newPosition)
+        if mazeModel.isExit(row: newCellY, column: newCellX) {
+            nextMaze()
         }
     }
     
-    
     func finishMaze() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
-            self.mazeModel.updateCurrentMaze(level: self.currentLevel, index: self.currentIndex)
-            self.resetBallPosition()
+        self.mazeModel.updateCurrentMaze(level: self.currentLevel, index: self.currentIndex)
+        self.resetBallPosition()
+        
+        Task { @MainActor in
+            try await Task.sleep(for: .seconds(0.5))
             self.showLevelAnimation = false
             self.showCheckAnimation = false
         }
@@ -79,7 +79,7 @@ class MazeMotionViewModel: ObservableObject {
                 finishMaze()
             case .hard:
                 finishGame = true
-                
+                showLevelAnimation = false
         }
     }
     
@@ -95,5 +95,11 @@ class MazeMotionViewModel: ObservableObject {
     
     private func resetBallPosition() {
         ballPosition = mazeModel.resetBallPosition()
+    }
+    
+    private func updateBallPosition(newPosition: CGPoint) {
+        ballPosition = newPosition
+        let newPosition = CGPoint(x: Int(ballPosition.x / cellSize), y: Int(ballPosition.y /  cellSize))
+        mazeModel.updateBallPosition(newPosition)
     }
 }
