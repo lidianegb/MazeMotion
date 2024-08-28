@@ -9,19 +9,23 @@ import SwiftUI
 import CoreMotion
 
 class MotionManager: ObservableObject {
-    private var motionManager = CMMotionManager()
     @Published var position: CGPoint = .zero
-
+    
+    private var motionManager = CMMotionManager()
+    private let queue = OperationQueue()
+    private let updateInterval = 0.1
+   
     init() {
         startMotionUpdates()
     }
-
+    
     func startMotionUpdates() {
         if motionManager.isDeviceMotionAvailable {
-            motionManager.deviceMotionUpdateInterval = 0.01
-            motionManager.startDeviceMotionUpdates(to: .main) { (data, error) in
-                if let data = data {
-                    self.position = CGPoint(x: data.gravity.x, y: data.gravity.y)
+            motionManager.deviceMotionUpdateInterval = updateInterval
+            motionManager.startDeviceMotionUpdates(to: queue) { [weak self] (data, error) in
+                guard let data else { return }
+                DispatchQueue.main.async {
+                    self?.position = CGPoint(x: data.gravity.x, y: data.gravity.y)
                 }
             }
         }
