@@ -13,7 +13,7 @@ class MotionManager: ObservableObject {
     
     private var motionManager = CMMotionManager()
     private let queue = OperationQueue()
-    private let updateInterval = 0.1
+    private let updateInterval = 0.01
    
     init() {
         startMotionUpdates()

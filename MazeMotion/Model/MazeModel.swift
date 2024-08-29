@@ -18,21 +18,22 @@ enum Level: Int {
 }
 
 class MazeModel: ObservableObject {
-    @Published var currentLevel: Level = .easy
-    @Published var currentMazeIndex: Int = .zero
-    @Published var currentMaze: [[Int]] = [[]]
     @Published var currentBallPosition: CGPoint = .zero
     
-    var numberOfRows: Int = .zero
-    var numberOfColumns: Int = .zero
-    var cellSize: Int = 30
+    private(set) var currentMaze: [[Int]] = [[]]
+    private (set)var currentLevel: Level = .easy
+    private (set) var numberOfRows: Int = .zero
+    private (set) var numberOfColumns: Int = .zero
+    private (set) var cellSize: Int = 30
+    private (set) var currentMazeIndex: Int = .zero
+    
     var mazeSize: CGSize {
         return .init(width: numberOfColumns * cellSize, height: numberOfRows * cellSize)
     }
     
     init(_ level: Int = .zero) {
-        currentMaze = getCurrentMaze()
         currentLevel = Level(from: level)
+        currentMaze = getCurrentMaze()
         currentBallPosition = getBallPosition()
         numberOfRows = currentMaze.count
         numberOfColumns = currentMaze[.zero].count
@@ -64,52 +65,38 @@ class MazeModel: ObservableObject {
     }
     
     func updateBallPosition(_ newPosition: CGPoint) {
-        currentBallPosition = .init(x: newPosition.x * 30 + 30 / 2,
-                             y: newPosition.y * 30 + 30 / 2)
+        currentBallPosition = newPosition
     }
     
-    func getMazesOfLevel() -> [[[Int]]] {
+    func mazesForLevel() -> Int {
         switch currentLevel {
             case .easy:
-                return EasyMaze.mazes
+                return EasyMaze().mazes.count
             case .medium:
-                return MediumMaze.mazes
+                return MediumMaze().mazes.count
             case .hard:
-                return HardMaze.mazes
+                return HardMaze().mazes.count
         }
     }
     
     // MARK: PRIVATE
-    
-    private func getCurrentMaze(_ mazes: [[[Int]]]) -> [[Int]] {
-        if currentMazeIndex >= 0 && currentMazeIndex < mazes.count {
-            return mazes[currentMazeIndex]
-        }
-        return [[]]
-    }
-    
-    private func getExitPosition() -> CGPoint {
-        var exitPosition: CGPoint = .zero
-        for row in 0..<currentMaze.count {
-            for column in 0..<currentMaze[row].count {
-                if currentMaze[row][column] == 3 {
-                    exitPosition = .init(x: CGFloat(column) * 30 + 30 / 2,
-                                            y: CGFloat(row) * 30 + 30 / 2)
-                }
-            }
-        }
-        return exitPosition
-    }
-    
+
     private func getCurrentMaze() -> [[Int]] {
         switch currentLevel {
             case .easy:
-                return getCurrentMaze(EasyMaze.mazes)
+                return getCurrentMaze(of: EasyMaze())
             case .medium:
-                return getCurrentMaze(MediumMaze.mazes)
+                return getCurrentMaze(of: MediumMaze())
             case .hard:
-                return getCurrentMaze(HardMaze.mazes)
+                return getCurrentMaze(of: HardMaze())
         }
+    }
+    
+    private func getCurrentMaze(of level: MazeLevel) -> [[Int]] {
+        if currentMazeIndex >= 0 && currentMazeIndex < level.mazes.count {
+            return level.mazes[currentMazeIndex]
+        }
+        return [[]]
     }
     
     private func getBallPosition() -> CGPoint {

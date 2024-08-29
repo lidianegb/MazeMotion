@@ -37,7 +37,7 @@ struct ContentView: View {
                             showLevelAnimation()
                         }
                         .modifier(ButtonGame())
-                        .padding(.top, 24)
+                        .padding(.top, 48)
                     }
                 }
             }

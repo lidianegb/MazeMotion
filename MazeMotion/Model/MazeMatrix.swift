@@ -6,9 +6,12 @@
 //
 
 import Foundation
+protocol MazeLevel {
+    var mazes: [[[Int]]] { get }
+}
 
-struct EasyMaze {
-    static var mazes = [
+struct EasyMaze: MazeLevel {
+    var mazes = [
         [
             [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
             [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
@@ -51,8 +54,8 @@ struct EasyMaze {
     ]
 }
 
-struct MediumMaze {
-    static var mazes = [
+struct MediumMaze: MazeLevel {
+    var mazes = [
         [
             [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
             [1, 0, 0, 0, 0, 1, 0, 1, 2, 0, 1],
@@ -95,8 +98,8 @@ struct MediumMaze {
     ]
 }
 
-struct HardMaze {
-    static var mazes = [
+struct HardMaze: MazeLevel {
+    var mazes = [
         [
             [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
             [1, 1, 2, 0, 0, 0, 1, 0, 1, 0, 1],

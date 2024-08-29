@@ -8,11 +8,11 @@
 import SwiftUI
 
 class MazeMotionViewModel: ObservableObject {
-    @Published var mazeModel = MazeModel()
-    @Published var showCheckAnimation: Bool = false
-    @Published var showLevelAnimation: Bool = false
-    @Published var finishGame: Bool = false
+    @ObservedObject var mazeModel = MazeModel()
     
+    var showLevelAnimation: Bool = false
+    private (set) var showCheckAnimation: Bool = false
+    private (set) var finishGame: Bool = false
     private (set) var currentLevel: Int = .zero
     
     private var ballPosition = CGPoint.zero
@@ -20,9 +20,6 @@ class MazeMotionViewModel: ObservableObject {
     
     init() {
         self.ballPosition = mazeModel.currentBallPosition
-        self.currentLevel = mazeModel.currentLevel.rawValue
-        self.currentIndex = mazeModel.currentMazeIndex
-        self.currentLevel = mazeModel.currentLevel.rawValue
     }
     
     let cellSize: CGFloat = 30
@@ -61,7 +58,7 @@ class MazeMotionViewModel: ObservableObject {
     }
     
     func nextMaze() {
-        if currentIndex < mazeModel.getMazesOfLevel().count - 1 {
+        if currentIndex < mazeModel.mazesForLevel() - 1 {
             currentIndex += 1
             showCheckAnimation = true
             finishMaze()
@@ -99,7 +96,6 @@ class MazeMotionViewModel: ObservableObject {
     
     private func updateBallPosition(newPosition: CGPoint) {
         ballPosition = newPosition
-        let newPosition = CGPoint(x: Int(ballPosition.x / cellSize), y: Int(ballPosition.y /  cellSize))
         mazeModel.updateBallPosition(newPosition)
     }
 }
